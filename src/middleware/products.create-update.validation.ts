@@ -6,7 +6,7 @@ export const createUpdateProductValidation = async (req: Request, res: Response,
 
     try {
 
-        if(name.length > 100) return res.status(400).json({ message: "The maximum number of characters is 100." })
+        if(name.length < 100) return res.status(400).json({ message: "The maximum number of characters is 100." })
         if(!name) return res.status(400).json({ message: "The name must not be empty." })
         if(!price) return res.status(400).json({ message: "The price must not be empty." })
 
